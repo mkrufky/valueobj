@@ -4,14 +4,21 @@
 AC_PREREQ([2.69])
 AC_INIT([libvalueobj], [1.0], [mkrufky@linuxtv.org])
 
-AM_INIT_AUTOMAKE(libvalueobj, 1.0.0)
+AM_INIT_AUTOMAKE()
 
 AC_CONFIG_SRCDIR([src/value.cpp])
 AC_CONFIG_HEADERS([config.h])
 
+AC_CONFIG_MACRO_DIR([m4])
+
 # Checks for programs.
 AC_PROG_CXX
+AC_PROG_AWK
 AC_PROG_CC
+AC_PROG_CPP
+AC_PROG_INSTALL
+AC_PROG_LN_S
+AC_PROG_MAKE_SET
 
 # libtool...
 LT_INIT
