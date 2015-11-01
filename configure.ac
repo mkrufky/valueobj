@@ -1,7 +1,7 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ([2.69])
+AC_PREREQ([2.50])
 AC_INIT([libvalueobj], [1.0], [mkrufky@linuxtv.org])
 
 AM_INIT_AUTOMAKE()
