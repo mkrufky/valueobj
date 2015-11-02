@@ -1,0 +1,15 @@
+sudo: false
+script:
+  - mkdir -p m4
+  - autoreconf --install
+  - ./configure
+  - make
+before_install:
+language: cpp
+compiler:
+  - g++
+  - gcc
+  - clang
+os:
+  - linux
+  - osx
