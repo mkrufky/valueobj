@@ -4,10 +4,8 @@ script:
   - autoreconf --install
   - ./configure
   - make
-before_install:
 language: cpp
 compiler:
-  - g++
   - gcc
   - clang
 os:
