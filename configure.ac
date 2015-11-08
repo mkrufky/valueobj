@@ -1,8 +1,9 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
+m4_include([version.m4])
 AC_PREREQ([2.50])
-AC_INIT([libvalueobj], [1.0], [mkrufky@linuxtv.org])
+AC_INIT([libvalueobj], m4_defn([VALOBJ_VERSION]), [mkrufky@linuxtv.org])
 
 AM_INIT_AUTOMAKE()
 
