@@ -69,9 +69,9 @@ script:
   - autoreconf --install
   - ./configure
   - if [ x"$COMPILER" == "x" ]; then
-      make;
+      make -j;
     else
-      make CXX=$COMPILER;
+      make CXX=$COMPILER -j;
     fi
   - if [ x"$NOCHECK" == "x" ]; then
       git clone https://github.com/joakimkarlsson/igloo.git;
@@ -79,8 +79,8 @@ script:
       git checkout igloo.1.1.1;
       cd ..;
       if [ x"$COMPILER" == "x" ]; then
-        make check;
+        make check -j;
       else
-        make CXX=$COMPILER check;
+        make CXX=$COMPILER check -j;
       fi
     fi
