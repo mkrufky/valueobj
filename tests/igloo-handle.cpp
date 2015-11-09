@@ -403,12 +403,3 @@ Describe(some_handle)
 
   Handle someHandle;
 };
-
-int main(int argc, char *argv[])
-{
-  DefaultTestResultsOutput output;
-  TestRunner runner(output);
-  ValueObjTestListener listener;
-  runner.AddListener(&listener);
-  return runner.Run();
-}
