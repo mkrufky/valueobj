@@ -312,6 +312,31 @@ Describe(some_handle)
         Assert::That(anArray.toJson(), Equals("[ 'a', 'b', 'c' ]"));
       }
 
+      It(sets_the_array)
+      {
+        Root().someHandle.set(anArray);
+        Assert::That(Root().someHandle.toJson(), Equals("[ 'a', 'b', 'c' ]"));
+      }
+
+      It(sets_the_array_ref)
+      {
+        Array& anArrayRef = anArray;
+        Root().someHandle.set(anArrayRef);
+        Assert::That(Root().someHandle.toJson(), Equals("[ 'a', 'b', 'c' ]"));
+      }
+
+      It(assigns_the_array)
+      {
+        Root().someHandle = anArray;
+        Assert::That(Root().someHandle.toJson(), Equals("[ 'a', 'b', 'c' ]"));
+      }
+
+      It(assigns_the_array_ref)
+      {
+        Array& anArrayRef = anArray;
+        Root().someHandle = anArrayRef;
+        Assert::That(Root().someHandle.toJson(), Equals("[ 'a', 'b', 'c' ]"));
+      }
       //DescribeHandleAnyDescription(Array, valobj_array, Parent().anArray);
       //DescribeHandleLiteralDescription(Array, literalvalobj_array, Parent().anArray);
 
@@ -333,6 +358,31 @@ Describe(some_handle)
         Assert::That(anObject.toJson(), Equals("{ 'a': 1, 'b': 2, 'c': 3 }"));
       }
 
+      It(sets_the_object)
+      {
+        Root().someHandle.set(anObject);
+        Assert::That(Root().someHandle.toJson(), Equals("{ 'a': 1, 'b': 2, 'c': 3 }"));
+      }
+
+      It(sets_the_object_ref)
+      {
+        Object& anObjectRef = anObject;
+        Root().someHandle.set(anObjectRef);
+        Assert::That(Root().someHandle.toJson(), Equals("{ 'a': 1, 'b': 2, 'c': 3 }"));
+      }
+
+      It(assigns_the_object)
+      {
+        Root().someHandle = anObject;
+        Assert::That(Root().someHandle.toJson(), Equals("{ 'a': 1, 'b': 2, 'c': 3 }"));
+      }
+
+      It(assigns_the_object_ref)
+      {
+        Object& anObjectRef = anObject;
+        Root().someHandle = anObjectRef;
+        Assert::That(Root().someHandle.toJson(), Equals("{ 'a': 1, 'b': 2, 'c': 3 }"));
+      }
       //DescribeHandleAnyDescription(Object, valobj_array, Parent().anObject);
       //DescribeHandleLiteralDescription(Object, literalvalobj_array, Parent().anObject);
 
