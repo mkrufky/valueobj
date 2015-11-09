@@ -20,4 +20,5 @@ HEADERS = igloo-listener.h
 SOURCES += \
 	igloo-array.cpp \
 	igloo-object.cpp \
+	igloo-handle.cpp \
 	igloo-listener.cpp
