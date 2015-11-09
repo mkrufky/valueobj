@@ -37,3 +37,12 @@ void ValueObjTestListener::SpecFailed(const ContextBase& context, const std::str
 {
   printf("%s: %s: %s\n", context.Name().c_str(), specName.c_str(), __func__);
 }
+
+int main(int argc, char *argv[])
+{
+  DefaultTestResultsOutput output;
+  TestRunner runner(output);
+  ValueObjTestListener listener;
+  runner.AddListener(&listener);
+  return runner.Run();
+}

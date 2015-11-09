@@ -274,12 +274,3 @@ Describe(some_object)
 
   Object someObject;
 };
-
-int main(int argc, char *argv[])
-{
-  DefaultTestResultsOutput output;
-  TestRunner runner(output);
-  ValueObjTestListener listener;
-  runner.AddListener(&listener);
-  return runner.Run();
-}
