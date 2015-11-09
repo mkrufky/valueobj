@@ -7,6 +7,8 @@
 using namespace igloo;
 using namespace valueobj;
 
+#define NAME "some name"
+
 #define __DescribeHandleTpl(__SET_TYPE, __GET_TYPE, __ANY_DESCRIPTION, IN, INITIALIZATION) \
   Describe(test_ ## __ANY_DESCRIPTION ## _set_and_get) \
   { \
@@ -22,6 +24,15 @@ using namespace valueobj;
       Assert::That(((Value<__GET_TYPE>*)(aHdl.get()))->get(), Equals(IN)); \
     } \
     \
+    It(set_explicit_name_value_correctly) \
+    { \
+      Handle aHdl; \
+      aHdl.set<__SET_TYPE>(IN, NAME); \
+      Assert::That(aHdl.get<__GET_TYPE>(), Equals(IN)); \
+      Assert::That(((Value<__GET_TYPE>*)(aHdl.get()))->get(), Equals(IN)); \
+      Assert::That(((aHdl.get()))->getName(), Equals(NAME)); \
+    } \
+    \
     It(set_via_handle_explicit_value_correctly) \
     { \
       Handle aHdl; \
@@ -30,6 +41,17 @@ using namespace valueobj;
       aHdl.set(bHdl); \
       Assert::That(aHdl.get<__GET_TYPE>(), Equals(IN)); \
       Assert::That(((Value<__GET_TYPE>*)(aHdl.get()))->get(), Equals(IN)); \
+    } \
+    \
+    It(set_via_handle_explicit_name_value_correctly) \
+    { \
+      Handle aHdl; \
+      Handle bHdl; \
+      bHdl.set<__SET_TYPE>(IN, NAME); \
+      aHdl.set(bHdl); \
+      Assert::That(aHdl.get<__GET_TYPE>(), Equals(IN)); \
+      Assert::That(((Value<__GET_TYPE>*)(aHdl.get()))->get(), Equals(IN)); \
+      Assert::That(((aHdl.get()))->getName(), Equals(NAME)); \
     } \
     \
     It(set_via_valuebase_explicit_value_correctly) \
@@ -42,12 +64,32 @@ using namespace valueobj;
       Assert::That(((Value<__GET_TYPE>*)(aHdl.get()))->get(), Equals(IN)); \
     } \
     \
+    It(set_via_valuebase_explicit_name_value_correctly) \
+    { \
+      Handle aHdl; \
+      Handle bHdl; \
+      bHdl.set<__SET_TYPE>(IN, NAME); \
+      aHdl.set(bHdl.get()); \
+      Assert::That(aHdl.get<__GET_TYPE>(), Equals(IN)); \
+      Assert::That(((Value<__GET_TYPE>*)(aHdl.get()))->get(), Equals(IN)); \
+      Assert::That(((aHdl.get()))->getName(), Equals(NAME)); \
+    } \
+    \
     It(set_implicit_value_correctly) \
     { \
       Handle aHdl; \
       aHdl.set(IN); \
       Assert::That(aHdl.get<__GET_TYPE>(), Equals(IN)); \
       Assert::That(((Value<__GET_TYPE>*)(aHdl.get()))->get(), Equals(IN)); \
+    } \
+    \
+    It(set_implicit_name_value_correctly) \
+    { \
+      Handle aHdl; \
+      aHdl.set(IN, NAME); \
+      Assert::That(aHdl.get<__GET_TYPE>(), Equals(IN)); \
+      Assert::That(((Value<__GET_TYPE>*)(aHdl.get()))->get(), Equals(IN)); \
+      Assert::That(((aHdl.get()))->getName(), Equals(NAME)); \
     } \
     \
     It(set_via_handle_implicit_value_correctly) \
@@ -60,6 +102,17 @@ using namespace valueobj;
       Assert::That(((Value<__GET_TYPE>*)(aHdl.get()))->get(), Equals(IN)); \
     } \
     \
+    It(set_via_handle_implicit_name_value_correctly) \
+    { \
+      Handle aHdl; \
+      Handle bHdl; \
+      bHdl.set(IN, NAME); \
+      aHdl.set(bHdl); \
+      Assert::That(aHdl.get<__GET_TYPE>(), Equals(IN)); \
+      Assert::That(((Value<__GET_TYPE>*)(aHdl.get()))->get(), Equals(IN)); \
+      Assert::That(((aHdl.get()))->getName(), Equals(NAME)); \
+    } \
+    \
     It(set_via_valuebase_implicit_value_correctly) \
     { \
       Handle aHdl; \
@@ -70,6 +123,17 @@ using namespace valueobj;
       Assert::That(((Value<__GET_TYPE>*)(aHdl.get()))->get(), Equals(IN)); \
     } \
     \
+    It(set_via_valuebase_implicit_name_value_correctly) \
+    { \
+      Handle aHdl; \
+      Handle bHdl; \
+      bHdl.set(IN, NAME); \
+      aHdl.set(bHdl.get()); \
+      Assert::That(aHdl.get<__GET_TYPE>(), Equals(IN)); \
+      Assert::That(((Value<__GET_TYPE>*)(aHdl.get()))->get(), Equals(IN)); \
+      Assert::That(((aHdl.get()))->getName(), Equals(NAME)); \
+    } \
+    \
     It(constructor_implicit_value_correctly) \
     { \
       Handle aHdl(IN); \
@@ -77,22 +141,46 @@ using namespace valueobj;
       Assert::That(((Value<__GET_TYPE>*)(aHdl.get()))->get(), Equals(IN)); \
     } \
     \
+    It(constructor_implicit_name_value_correctly) \
+    { \
+      Handle aHdl(IN, NAME); \
+      Assert::That(aHdl.get<__GET_TYPE>(), Equals(IN)); \
+      Assert::That(((Value<__GET_TYPE>*)(aHdl.get()))->get(), Equals(IN)); \
+      Assert::That(((aHdl.get()))->getName(), Equals(NAME)); \
+    } \
+    \
     It(constructor_via_handle_implicit_value_correctly) \
     { \
-      Handle bHdl; \
-      bHdl.set(IN); \
+      Handle bHdl(IN); \
       Handle aHdl(bHdl); \
       Assert::That(aHdl.get<__GET_TYPE>(), Equals(IN)); \
       Assert::That(((Value<__GET_TYPE>*)(aHdl.get()))->get(), Equals(IN)); \
     } \
     \
+    It(constructor_via_handle_implicit_name_value_correctly) \
+    { \
+      Handle bHdl(IN, NAME); \
+      Handle aHdl(bHdl); \
+      Assert::That(aHdl.get<__GET_TYPE>(), Equals(IN)); \
+      Assert::That(((Value<__GET_TYPE>*)(aHdl.get()))->get(), Equals(IN)); \
+      Assert::That(((aHdl.get()))->getName(), Equals(NAME)); \
+    } \
+    \
     It(constructor_via_valuebase_implicit_value_correctly) \
     { \
-      Handle bHdl; \
-      bHdl.set(IN); \
+      Handle bHdl(IN); \
       Handle aHdl(bHdl.get()); \
       Assert::That(aHdl.get<__GET_TYPE>(), Equals(IN)); \
       Assert::That(((Value<__GET_TYPE>*)(aHdl.get()))->get(), Equals(IN)); \
+    } \
+    \
+    It(constructor_via_valuebase_implicit_name_value_correctly) \
+    { \
+      Handle bHdl(IN, NAME); \
+      Handle aHdl(bHdl.get()); \
+      Assert::That(aHdl.get<__GET_TYPE>(), Equals(IN)); \
+      Assert::That(((Value<__GET_TYPE>*)(aHdl.get()))->get(), Equals(IN)); \
+      Assert::That(((aHdl.get()))->getName(), Equals(NAME)); \
     } \
     \
     It(assignment_operator_implicit_value_correctly) \
@@ -104,8 +192,7 @@ using namespace valueobj;
     \
     It(assignment_operator_via_handle_implicit_value_correctly) \
     { \
-      Handle bHdl; \
-      bHdl.set(IN); \
+      Handle bHdl = IN; \
       Handle aHdl = bHdl; \
       Assert::That(aHdl.get<__GET_TYPE>(), Equals(IN)); \
       Assert::That(((Value<__GET_TYPE>*)(aHdl.get()))->get(), Equals(IN)); \
@@ -113,8 +200,7 @@ using namespace valueobj;
     \
     It(assignment_operator_via_valuebase_implicit_value_correctly) \
     { \
-      Handle bHdl; \
-      bHdl.set(IN); \
+      Handle bHdl = IN; \
       Handle aHdl = bHdl.get(); \
       Assert::That(aHdl.get<__GET_TYPE>(), Equals(IN)); \
       Assert::That(((Value<__GET_TYPE>*)(aHdl.get()))->get(), Equals(IN)); \
