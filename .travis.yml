@@ -2,15 +2,31 @@
 language: cpp
 matrix:
   include:
+    - os: linux
+      compiler: gcc
+      env:
+        - secure: "FIXME"
+      addons:
+        coverity_scan:
+          project:
+            name: "mkrufky/valueobj"
+            description: "Build submitted via Travis CI"
+          notification_email: mkrufky@linuxtv.org
+          build_command_prepend: "mkdir -p m4; autoreconf --install; ./configure; make clean"
+          build_command:   "make -j"
+          branch_pattern: coverity
+      env: NOCHECK=1
+
     - os: osx
       compiler: gcc
 
     - os: osx
       compiler: clang
 
-    - os: linux
-      compiler: gcc
-      env: NOCHECK=1
+# Disabled to avoid duplication with the coverity scan version
+#    - os: linux
+#      compiler: gcc
+#      env: NOCHECK=1
 
     - os: linux
       compiler: gcc
