@@ -4,6 +4,7 @@
 m4_include([version.m4])
 AC_PREREQ([2.50])
 AC_INIT([libvalueobj], m4_defn([VALOBJ_VERSION]), [mkrufky@linuxtv.org])
+AC_CONFIG_AUX_DIR([.])
 
 AM_INIT_AUTOMAKE()
 
