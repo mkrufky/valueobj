@@ -17,5 +17,6 @@ OTHER_FILES += AUTHORS \
                ChangeLog \
                configure.ac \
                Makefile.am \
+               appveyor.yml \
                .travis.yml \
                version.m4
