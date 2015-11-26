@@ -13,6 +13,8 @@ LIBS += $$PWD/../libvalueobj.a
 
 OTHER_FILES += $$PWD/Makefile.am
 
+QMAKE_CXXFLAGS += -w
+
 HEADERS = igloo-listener.h
 
 SOURCES += \
