@@ -1,4 +1,4 @@
-AM_CXXFLAGS = -I../src -I../igloo -w
+AM_CXXFLAGS = -I../include/valobj -I../igloo -w
 
 check_PROGRAMS = igloo-object igloo-array
 
