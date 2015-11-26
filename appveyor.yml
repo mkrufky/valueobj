@@ -12,4 +12,4 @@ build_script:
   - cd tests
   - qmake tests.pro
   - mingw32-make -j
-  - mingw32-make check
+#  - mingw32-make check
