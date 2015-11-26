@@ -5,6 +5,10 @@ install:
 build_script:
   - qmake valueobj.pro
   - mingw32-make
+  - git clone -q https://github.com/joakimkarlsson/igloo.git
+  - cd igloo
+  - git checkout igloo.1.1.1
+  - cd ..
   - cd tests
   - qmake tests.pro
   - mingw32-make
