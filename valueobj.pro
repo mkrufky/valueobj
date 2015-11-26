@@ -2,6 +2,7 @@ QT=
 
 TARGET = valueobj
 TEMPLATE = lib
+DESTDIR = .
 
 include ( src/value.pri )
 
