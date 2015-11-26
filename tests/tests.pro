@@ -9,8 +9,7 @@ CONFIG   += testcase
 
 INCLUDEPATH += $$PWD/../include/valobj $$PWD/../igloo
 
-LIBS += -L$$PWD/../release
-LIBS += -L$$PWD/../ -lvalueobj
+LIBS += $$PWD/../libvalueobj.a
 
 OTHER_FILES += $$PWD/Makefile.am
 
