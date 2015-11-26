@@ -5,3 +5,7 @@ install:
 build_script:
   - qmake valueobj.pro
   - mingw32-make
+  - cd tests
+  - qmake tests.pro
+  - mingw32-make
+  - tests
