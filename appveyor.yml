@@ -5,7 +5,7 @@ install:
 build_script:
   - cd src
   - qmake value.pro
-  - mingw32-make
+  - mingw32-make -j
   - cd ..
   - git clone -q https://github.com/joakimkarlsson/igloo.git
   - cd igloo
