@@ -9,7 +9,7 @@ test:
   pre:
     - gcc --version
     - g++ --version
-    - autoreconf --install
+    - mkdir m4; autoreconf --install
     - ./configure
     - make -j
   override:
