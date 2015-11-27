@@ -1,8 +1,14 @@
 dependencies:
   pre:
+    - sudo apt-get update
+    - sudo apt-get install gcc-5 g++-5
+    - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 100
+    - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 100
     - sudo apt-get install autoconf-archive automake-1.14 autoconf2.59 build-essential check
 test:
   pre:
+    - gcc --version
+    - g++ --version
     - autoreconf --install
     - ./configure
     - make -j
