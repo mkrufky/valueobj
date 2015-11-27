@@ -1,0 +1,12 @@
+dependencies:
+  pre:
+    - sudo apt-get install autoconf-archive automake-1.14 autoconf2.59 build-essential check
+test:
+  pre:
+    - autoreconf --install
+    - ./configure
+    - make -j
+  override:
+    - git clone https://github.com/joakimkarlsson/igloo.git
+    - (cd igloo; git checkout igloo.1.1.1)
+    - make -j check
