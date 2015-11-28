@@ -65,22 +65,17 @@ matrix:
 #      env: COMPILER=clang++-3.7
 
 script:
+  - if [ x"$COMPILER" != "x" ]; then
+      export CXX=$COMPILER;
+    fi
   - mkdir -p m4
   - autoreconf --install
   - ./configure
-  - if [ x"$COMPILER" == "x" ]; then
-      make -j;
-    else
-      make CXX=$COMPILER -j;
-    fi
+  - make -j;
   - if [ x"$NOCHECK" == "x" ]; then
       git clone https://github.com/joakimkarlsson/igloo.git;
       cd igloo;
       git checkout igloo.1.1.1;
       cd ..;
-      if [ x"$COMPILER" == "x" ]; then
-        make check -j;
-      else
-        make CXX=$COMPILER check -j;
-      fi
+      make check -j;
     fi
