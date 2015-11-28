@@ -70,7 +70,7 @@ install:
       export CXX=$COMPILER;
     fi
   - if [ x"$GCOV" != "x" ]; then
-      sudo ln -sf /usr/bin/$GCOV /usr/bin/gcov;
+      sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/$GCOV 90;
     fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then
       wget http://ftp.de.debian.org/debian/pool/main/l/lcov/lcov_1.11.orig.tar.gz;
