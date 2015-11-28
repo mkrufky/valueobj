@@ -1,5 +1,9 @@
 AM_CXXFLAGS = -I../include/valobj -I../igloo -w
 
+if COVERALLS
+AM_CXXFLAGS += -g -O0
+endif COVERALLS
+
 check_PROGRAMS = igloo-object igloo-array
 
 igloo_array_SOURCES = igloo-array.cpp igloo-listener.cpp
