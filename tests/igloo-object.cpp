@@ -128,7 +128,7 @@ Describe(some_object)
       anotherObject2.set("j", anotherObject3);
       anotherObject1.set("k", anotherObject2);
 
-      Assert::That(anotherObject1.toJson(), Equals("{ 'a': 1, 'b': 2, 'c': 3, 'k': { 'd': 4, 'e': 5, 'f': 6, 'j': { 'g': 7, 'h': 8, 'i': 9 } } }"));
+      Assert::That(anotherObject1.toJson(), Equals("{ \"a\": 1, \"b\": 2, \"c\": 3, \"k\": { \"d\": 4, \"e\": 5, \"f\": 6, \"j\": { \"g\": 7, \"h\": 8, \"i\": 9 } } }"));
     }
 
     It(inserts_two_arrays_into_an_object)
@@ -154,7 +154,7 @@ Describe(some_object)
       anotherObject.set("j", someArray1);
       anotherObject.set("k", someArray2);
 
-      Assert::That(anotherObject.toJson(), Equals("{ 'a': 1, 'b': 2, 'c': 3, 'j': [ 'd', 'e', 'f' ], 'k': [ 'g', 'h', 'i' ] }"));
+      Assert::That(anotherObject.toJson(), Equals("{ \"a\": 1, \"b\": 2, \"c\": 3, \"j\": [ \"d\", \"e\", \"f\" ], \"k\": [ \"g\", \"h\", \"i\" ] }"));
     }
 
     It(decreases_member_refcount_when_unset_via_int)
@@ -164,7 +164,7 @@ Describe(some_object)
 
       anotherObject1.set(5, "five");
 
-      Assert::That(anotherObject1.toJson(), Equals("{ '5': 'five' }"));
+      Assert::That(anotherObject1.toJson(), Equals("{ \"5\": \"five\" }"));
       Assert::That(anotherObject1.get<std::string>(5), Equals("five"));
 
       Assert::That(((Value<std::string>*)anotherObject1.get(5))->getRefCnt(), Equals(1));
@@ -175,12 +175,12 @@ Describe(some_object)
       anotherObject2.set((ValueBase*)m);
       Assert::That(m->getRefCnt(), Equals(2));
 
-      Assert::That(anotherObject2.toJson(), Equals("{ '5': 'five' }"));
+      Assert::That(anotherObject2.toJson(), Equals("{ \"5\": \"five\" }"));
 
       anotherObject1.unSet(5);
       Assert::That(m->getRefCnt(), Equals(1));
 
-      Assert::That(anotherObject2.toJson(), Equals("{ '5': 'five' }"));
+      Assert::That(anotherObject2.toJson(), Equals("{ \"5\": \"five\" }"));
       Assert::That(anotherObject1.toJson(), Equals("{}"));
     }
 
@@ -191,7 +191,7 @@ Describe(some_object)
 
       anotherObject1.set("number", "five");
 
-      Assert::That(anotherObject1.toJson(), Equals("{ 'number': 'five' }"));
+      Assert::That(anotherObject1.toJson(), Equals("{ \"number\": \"five\" }"));
       Assert::That(anotherObject1.get<std::string>("number"), Equals("five"));
 
       Assert::That(((Value<std::string>*)anotherObject1.get("number"))->getRefCnt(), Equals(1));
@@ -202,12 +202,12 @@ Describe(some_object)
       anotherObject2.set((ValueBase*)m);
       Assert::That(m->getRefCnt(), Equals(2));
 
-      Assert::That(anotherObject2.toJson(), Equals("{ 'number': 'five' }"));
+      Assert::That(anotherObject2.toJson(), Equals("{ \"number\": \"five\" }"));
 
       anotherObject1.unSet("number");
       Assert::That(m->getRefCnt(), Equals(1));
 
-      Assert::That(anotherObject2.toJson(), Equals("{ 'number': 'five' }"));
+      Assert::That(anotherObject2.toJson(), Equals("{ \"number\": \"five\" }"));
       Assert::That(anotherObject1.toJson(), Equals("{}"));
     }
 

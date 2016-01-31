@@ -3,3 +3,4 @@
 [![Coverity Scan Build Status](https://scan.coverity.com/projects/mkrufky-valueobj/badge.svg)](https://scan.coverity.com/projects/mkrufky-valueobj)
 [![Coverage Status](https://coveralls.io/repos/mkrufky/valueobj/badge.svg?branch=master&service=github)](https://coveralls.io/github/mkrufky/valueobj?branch=master)
 [![Circle CI](https://circleci.com/gh/mkrufky/valueobj/tree/master.svg?style=svg)](https://circleci.com/gh/mkrufky/valueobj/tree/master)
+[![Analytics](https://ga-beacon.appspot.com/UA-71301363-2/mkrufky/valueobj/README.md)](https://github.com/igrigorik/ga-beacon)
