@@ -277,7 +277,7 @@ Describe(some_handle)
 
       anotherHandle1.set("five");
 
-      Assert::That(anotherHandle1.toJson(), Equals("'five'"));
+      Assert::That(anotherHandle1.toJson(), Equals("\"five\""));
       Assert::That(anotherHandle1.get<std::string>(), Equals("five"));
 
       Assert::That(((Value<std::string>*)anotherHandle1.get())->getRefCnt(), Equals(1));
@@ -288,12 +288,12 @@ Describe(some_handle)
       anotherHandle2.set((ValueBase*)m);
       Assert::That(m->getRefCnt(), Equals(2));
 
-      Assert::That(anotherHandle2.toJson(), Equals("'five'"));
+      Assert::That(anotherHandle2.toJson(), Equals("\"five\""));
 
       anotherHandle1.clear();
       Assert::That(m->getRefCnt(), Equals(1));
 
-      Assert::That(anotherHandle2.toJson(), Equals("'five'"));
+      Assert::That(anotherHandle2.toJson(), Equals("\"five\""));
       Assert::That(anotherHandle1.toJson(), Equals(""));
     }
 
@@ -309,33 +309,33 @@ Describe(some_handle)
 
       It(filled_the_array)
       {
-        Assert::That(anArray.toJson(), Equals("[ 'a', 'b', 'c' ]"));
+        Assert::That(anArray.toJson(), Equals("[ \"a\", \"b\", \"c\" ]"));
       }
 
       It(sets_the_array)
       {
         Root().someHandle.set(anArray);
-        Assert::That(Root().someHandle.toJson(), Equals("[ 'a', 'b', 'c' ]"));
+        Assert::That(Root().someHandle.toJson(), Equals("[ \"a\", \"b\", \"c\" ]"));
       }
 
       It(sets_the_array_ref)
       {
         Array& anArrayRef = anArray;
         Root().someHandle.set(anArrayRef);
-        Assert::That(Root().someHandle.toJson(), Equals("[ 'a', 'b', 'c' ]"));
+        Assert::That(Root().someHandle.toJson(), Equals("[ \"a\", \"b\", \"c\" ]"));
       }
 
       It(assigns_the_array)
       {
         Root().someHandle = anArray;
-        Assert::That(Root().someHandle.toJson(), Equals("[ 'a', 'b', 'c' ]"));
+        Assert::That(Root().someHandle.toJson(), Equals("[ \"a\", \"b\", \"c\" ]"));
       }
 
       It(assigns_the_array_ref)
       {
         Array& anArrayRef = anArray;
         Root().someHandle = anArrayRef;
-        Assert::That(Root().someHandle.toJson(), Equals("[ 'a', 'b', 'c' ]"));
+        Assert::That(Root().someHandle.toJson(), Equals("[ \"a\", \"b\", \"c\" ]"));
       }
       //DescribeHandleAnyDescription(Array, valobj_array, Parent().anArray);
       //DescribeHandleLiteralDescription(Array, literalvalobj_array, Parent().anArray);
@@ -355,33 +355,33 @@ Describe(some_handle)
 
       It(filled_the_object)
       {
-        Assert::That(anObject.toJson(), Equals("{ 'a': 1, 'b': 2, 'c': 3 }"));
+        Assert::That(anObject.toJson(), Equals("{ \"a\": 1, \"b\": 2, \"c\": 3 }"));
       }
 
       It(sets_the_object)
       {
         Root().someHandle.set(anObject);
-        Assert::That(Root().someHandle.toJson(), Equals("{ 'a': 1, 'b': 2, 'c': 3 }"));
+        Assert::That(Root().someHandle.toJson(), Equals("{ \"a\": 1, \"b\": 2, \"c\": 3 }"));
       }
 
       It(sets_the_object_ref)
       {
         Object& anObjectRef = anObject;
         Root().someHandle.set(anObjectRef);
-        Assert::That(Root().someHandle.toJson(), Equals("{ 'a': 1, 'b': 2, 'c': 3 }"));
+        Assert::That(Root().someHandle.toJson(), Equals("{ \"a\": 1, \"b\": 2, \"c\": 3 }"));
       }
 
       It(assigns_the_object)
       {
         Root().someHandle = anObject;
-        Assert::That(Root().someHandle.toJson(), Equals("{ 'a': 1, 'b': 2, 'c': 3 }"));
+        Assert::That(Root().someHandle.toJson(), Equals("{ \"a\": 1, \"b\": 2, \"c\": 3 }"));
       }
 
       It(assigns_the_object_ref)
       {
         Object& anObjectRef = anObject;
         Root().someHandle = anObjectRef;
-        Assert::That(Root().someHandle.toJson(), Equals("{ 'a': 1, 'b': 2, 'c': 3 }"));
+        Assert::That(Root().someHandle.toJson(), Equals("{ \"a\": 1, \"b\": 2, \"c\": 3 }"));
       }
       //DescribeHandleAnyDescription(Object, valobj_array, Parent().anObject);
       //DescribeHandleLiteralDescription(Object, literalvalobj_array, Parent().anObject);
