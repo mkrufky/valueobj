@@ -144,7 +144,7 @@ Describe(some_array)
       anotherArray2.push(anotherArray3);
       anotherArray1.push(anotherArray2);
 
-      Assert::That(anotherArray1.toJson(), Equals("[ 'a', 'b', 'c', [ 'd', 'e', 'f', [ 'g', 'h', 'i' ] ] ]"));
+      Assert::That(anotherArray1.toJson(), Equals("[ \"a\", \"b\", \"c\", [ \"d\", \"e\", \"f\", [ \"g\", \"h\", \"i\" ] ] ]"));
     }
 
     It(inserts_two_objects_into_an_array)
@@ -170,7 +170,7 @@ Describe(some_array)
       anotherArray.push(someObject1);
       anotherArray.push(someObject2);
 
-      Assert::That(anotherArray.toJson(), Equals("[ 'a', 'b', 'c', { 'd': 4, 'e': 5, 'f': 6 }, { 'g': 7, 'h': 8, 'i': 9 } ]"));
+      Assert::That(anotherArray.toJson(), Equals("[ \"a\", \"b\", \"c\", { \"d\": 4, \"e\": 5, \"f\": 6 }, { \"g\": 7, \"h\": 8, \"i\": 9 } ]"));
     }
 
     DescribeArrayNumeric(int);
