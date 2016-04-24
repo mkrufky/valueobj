@@ -1,0 +1,15 @@
+{
+  "name": "valueobj",
+  "version": "1.0.3",
+  "repo": "mkrufky/valueobj",
+  "description": "strong-typed immutable value abstraction library",
+  "keywords": ["strong", "typed", "immutable", "value", "abstraction", "json", "reference", "handle"],
+  "src": [
+    "src/array.cpp",
+    "include/valobj/array.h",
+    "src/object.cpp",
+    "include/valobj/object.h",
+    "src/value.cpp",
+    "include/valobj/value.h"
+  ]
+}
