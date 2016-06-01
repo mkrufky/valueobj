@@ -1,1 +1,1 @@
-m4_define([VALOBJ_VERSION],[1.0.3])
+m4_define([VALOBJ_VERSION],[1.1.0])

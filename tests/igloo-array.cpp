@@ -92,7 +92,7 @@ Describe(some_array)
     It(increases_decreases_member_refcounts)
     {
       Parent().someArray.push(0);
-      Assert::That(Parent().someArray.get(Parent().someArray.size()-1)->getRefCnt(), Equals(1));
+      Assert::That(((ValueBase*)(Parent().someArray.get(Parent().someArray.size()-1)))->getRefCnt(), Equals(1));
 
       Array anotherArray;
 
@@ -109,7 +109,7 @@ Describe(some_array)
     It(copy_constructor_increases_decreases_member_refcounts)
     {
       Parent().someArray.push(0);
-      Assert::That(Parent().someArray.get(Parent().someArray.size()-1)->getRefCnt(), Equals(1));
+      Assert::That(((ValueBase*)(Parent().someArray.get(Parent().someArray.size()-1)))->getRefCnt(), Equals(1));
 
       const ValueBase* m = Parent().someArray.get(Parent().someArray.size()-1);
       Assert::That(m->getRefCnt(), Equals(1));

@@ -76,7 +76,7 @@ Describe(some_object)
     It(increases_decreases_member_refcounts)
     {
       Parent().someObject.set("member", 0);
-      Assert::That(Parent().someObject.get("member")->getRefCnt(), Equals(1));
+      Assert::That(((ValueBase*)(Parent().someObject.get("member")))->getRefCnt(), Equals(1));
 
       Object anotherObject;
 
@@ -93,7 +93,7 @@ Describe(some_object)
     It(copy_constructor_increases_decreases_member_refcounts)
     {
       Parent().someObject.set("member", 0);
-      Assert::That(Parent().someObject.get("member")->getRefCnt(), Equals(1));
+      Assert::That(((ValueBase*)(Parent().someObject.get("member")))->getRefCnt(), Equals(1));
 
       const ValueBase* m = Parent().someObject.get("member");
       Assert::That(m->getRefCnt(), Equals(1));
