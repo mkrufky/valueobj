@@ -5,7 +5,7 @@ matrix:
     - os: linux
       compiler: gcc
       env:
-        - secure: "FIXME"
+        - secure: "pmx0XqezDiYWojAB1cskaFa30uBnhaQDVU/L6oBz69V5Hff8vIqeobUpRSwWvp/MZLfNExGLNI/bQ5kzU8QhH0U8EpqCYeWqtDJTX/4wusyosVgFIrW1K39+v53WCcWowKnWxzt1uDtdwttygq6Y2n+JRW0fM9h+kZfLnWmSkdfC/3drchAg0mtiIWxLYdhIEWb/adtjcgFKimDFxsX4sG2ejSsEfMvJ6np3QPMlpgbVR9bjt6q7E4RpnHZRweVRsxCjsZN/lx4pYuF8gYTs/+vS3L7qMF+FfZR7SdOtvCNCx9PxQ+c2bnep21YsZceqApqtlJVz6NKM2aFP7EgfPBROkBEG6LyYymNk79dPszTesNZP2SQs4jXUpC3a9pRci48fwPLTmDa81SSDEeaDcfgrDWR9ZZiAi/NQN4w16XGK29t+qNEH1GI8vAoVE0UpAn9Maa3UxqZY+yAQoRux0FaVHsY3So+XNcGWBRhjdFSZWdoHJ9Uzr+LfQCoTAg8NaUzGS6W/xAbz86+HOu2QdeA94RYjycNUjd4goUIcIxx9gOaXh/GJCYO1OAI2svRqRnI3l5GlLJW+yH7shvFbqauxKrw/ODXEjuq13E6z+YB+RfYRsSXNrigd/7yNmRELOhgqnk0hNGRLvYIFqgJMn7YdGztbAfxYVkmCLGqWmDE="
       addons:
         coverity_scan:
           project:
